@@ -1,5 +1,6 @@
 import React from 'react'
 import { DoTask } from './modal'
+import OneDoTask from './OneDoTask';
 import './styles.css'
 
 interface Props{
@@ -10,7 +11,11 @@ const DoTaskList: React.FC<Props> = ({dotasks, setTasks}:Props) => {
   return (
     <div className='dotasks'>
       {dotasks.map(dotask =>(
-        <li>{dotask.dotask}</li>
+        <OneDoTask dotask={dotask}
+         key={dotask.id}
+         dotasks={dotasks}
+         setTasks={setTasks}
+         />
       ))}
     </div>
   )
